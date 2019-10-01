@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Login>
+﻿@*@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @using ContentModels = Umbraco.Web.PublishedModels;
 @using System.Web.Mvc.Html
 @using Umbraco.Web
@@ -27,12 +27,10 @@
                         @Html.HiddenFor(m => loginModel.RedirectUrl)
                         @Html.ValidationSummary("loginModel", true)
                         <div class="form-label-group">
-                            @*@Html.LabelFor(m => loginModel.Username)*@
                             @Html.TextBoxFor(m => loginModel.Username, new { @class = "form-control", placeholder = "Username" })
                             @Html.ValidationMessageFor(m => loginModel.Username)
                         </div>
                         <div class="form-label-group">
-                            @*@Html.LabelFor(m => loginModel.Password)*@
                             @Html.PasswordFor(m => loginModel.Password, new { @class = "form-control", placeholder = "Password" })
                             @Html.ValidationMessageFor(m => loginModel.Password)
                         </div>
@@ -49,4 +47,4 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
-    }
+    }*@

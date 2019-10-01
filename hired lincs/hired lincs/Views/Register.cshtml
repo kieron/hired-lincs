@@ -1,11 +1,10 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Register>
-@using System.Web.Mvc.Html
+﻿@using System.Web.Mvc.Html
 @using Umbraco.Web
-@using Umbraco.Web.Controllers
-@using ContentModels = Umbraco.Web.PublishedModels;
+@using hiredlincs.core
+@model hiredlincs.core.RegisterHiredLincsModel;
 @{
     Layout = "master.cshtml";
-    var registerModel = Members.CreateRegistrationModel();
+    //var registerModel = Members.CreateRegistrationModel();
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
     var success = TempData["FormSuccess"] != null;
@@ -26,46 +25,23 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Register</h5>
-                        @using (Html.BeginUmbracoForm<UmbRegisterController>("HandleRegisterMember", null, new { @class = "form-signin" }))
+                        @using (Html.BeginUmbracoForm<RegisterHiredLincsController>("Register", null, new { @class = "form-signin" }))
                         {
                             @Html.ValidationSummary("registerModel", true)
                             <div class="form-label-group">
-                                @Html.TextBoxFor(m => registerModel.Name, new { @class = "form-control", placeholder = "Your Name"  })
-                                @Html.ValidationMessageFor(m => registerModel.Name)
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Your Name" })
+                                @Html.ValidationMessageFor(m => m.Name)
                             </div>
                             <div class="form-label-group">
-                                @Html.TextBoxFor(m => registerModel.Email, new { @class = "form-control", placeholder = "Your Email"  })
-                                @Html.ValidationMessageFor(m => registerModel.Email)
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Your Email" })
+                                @Html.ValidationMessageFor(m => m.Email)
                             </div>
                             <div class="form-label-group">
-                                @Html.PasswordFor(m => registerModel.Password, new { @class = "form-control", placeholder = "Password"  })
-                                @Html.ValidationMessageFor(m => registerModel.Password)
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                                @Html.ValidationMessageFor(m => m.Password)
                             </div>
 
-                            if (registerModel.MemberProperties != null)
-                            {
-                                @*
-                                    It will only displays properties marked as "Member can edit" on the "Info" tab of the Member Type.
-                                *@
-                                for (var i = 0; i < registerModel.MemberProperties.Count; i++)
-                                {
-                                    @Html.LabelFor(m => registerModel.MemberProperties[i].Value, registerModel.MemberProperties[i].Name)
-                                    @*
-                                        By default this will render a textbox but if you want to change the editor template for this property you can
-                                        easily change it. For example, if you wanted to render a custom editor for this field called "MyEditor" you would
-                                        create a file at ~/Views/Shared/EditorTemplates/MyEditor.cshtml", then you will change the next line of code to
-                                        render your specific editor template like:
-                                        @Html.EditorFor(m => profileModel.MemberProperties[i].Value, "MyEditor")
-                                    *@
-                                    @Html.EditorFor(m => registerModel.MemberProperties[i].Value)
-                                    @Html.HiddenFor(m => registerModel.MemberProperties[i].Alias)
-                                    <br />
-                                }
-                            }
 
-                            @Html.HiddenFor(m => registerModel.MemberTypeAlias)
-                            @Html.HiddenFor(m => registerModel.RedirectUrl)
-                            @Html.HiddenFor(m => registerModel.UsernameIsEmail)
                             <button class="btn btn-lg btn-primary btn-block text-uppercase">Register</button>
                         }
 

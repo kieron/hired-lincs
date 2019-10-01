@@ -25,32 +25,34 @@
 
 <body>
     <nav class="p-0 navbar navbar-expand-md navbar-dark bg-info fixed-top">
-      <a class="px-3 navbar-brand mr-0" href="/">Hired Lincs</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <input class="form-control form-control-dark w-100 h-100 navSearch" type="text" placeholder="Search Jobs" aria-label="Search" />
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto w-100">
-              <li class="nav-item ml-auto d-flex">
-                  @if (loginStatusModel.IsLoggedIn)
-                  {
-                      using (Html.BeginUmbracoForm<UmbLoginStatusController>("HandleLogout"))
-                      {
-                          <fieldset>
-                              <button class="btn btn-primary">Logout</button>
-                          </fieldset>
-                          @Html.HiddenFor(m => logoutModel.RedirectUrl)
-                      }
-                  }
-                  else
-                  {
-                      <a class="d-inline-block nav-link px-3" href="/register">Register</a>
-                      <a class="d-inline-block nav-link px-3" href="/login">Login</a>
-                  }
-              </li>
-          </ul>
-      </div>
+        <a class="px-3 navbar-brand mr-0" href="/">Hired Lincs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <form action="/jobs" class="w-100" method="get">
+            <input class="form-control form-control-dark w-100 h-100 navSearch" type="text" name="q" placeholder="Search Jobs" aria-label="Search" />
+        </form>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto w-100">
+                    <li class="nav-item ml-auto d-flex">
+                        @if (loginStatusModel.IsLoggedIn)
+                        {
+                            using (Html.BeginUmbracoForm<UmbLoginStatusController>("HandleLogout"))
+                            {
+                                <fieldset>
+                                    <button class="btn btn-primary">Logout</button>
+                                </fieldset>
+                                @Html.HiddenFor(m => logoutModel.RedirectUrl)
+                            }
+                        }
+                        else
+                        {
+                            <a class="d-inline-block nav-link px-3" href="/register">Register</a>
+                            <a class="d-inline-block nav-link px-3" href="/login">Login</a>
+                        }
+                    </li>
+                </ul>
+            </div>
     </nav>
 
     <main role="main" class="container mt-5 py-5">

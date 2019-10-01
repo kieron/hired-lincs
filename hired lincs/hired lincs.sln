@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hired lincs", "hired lincs\hired lincs.csproj", "{23EF3D81-13D3-41C5-A9FA-584FA4F9C11F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hiredlincs.core", "hiredlincs.core\hiredlincs.core.csproj", "{15437961-22F9-4248-B3B0-BBCBF77F9A2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{23EF3D81-13D3-41C5-A9FA-584FA4F9C11F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23EF3D81-13D3-41C5-A9FA-584FA4F9C11F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23EF3D81-13D3-41C5-A9FA-584FA4F9C11F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15437961-22F9-4248-B3B0-BBCBF77F9A2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15437961-22F9-4248-B3B0-BBCBF77F9A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15437961-22F9-4248-B3B0-BBCBF77F9A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15437961-22F9-4248-B3B0-BBCBF77F9A2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
