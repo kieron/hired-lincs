@@ -1,0 +1,52 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Login>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using System.Web.Mvc.Html
+@using Umbraco.Web
+@using Umbraco.Web.Models
+@using Umbraco.Web.Controllers
+@{
+    Layout = "master.cshtml";
+    var loginModel = new LoginModel();
+    loginModel.RedirectUrl = HttpContext.Current.Request.Url.AbsolutePath;
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    var loginStatusModel = Members.GetCurrentLoginStatus();
+    if (loginStatusModel.IsLoggedIn)
+    {
+        HttpContext.Current.Response.Redirect("/");
+    }
+}
+
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sign In</h5>
+                    @using (Html.BeginUmbracoForm<UmbLoginController>("HandleLogin", null, new { @class = "form-signin" }))
+                    {
+                        @Html.HiddenFor(m => loginModel.RedirectUrl)
+                        @Html.ValidationSummary("loginModel", true)
+                        <div class="form-label-group">
+                            @*@Html.LabelFor(m => loginModel.Username)*@
+                            @Html.TextBoxFor(m => loginModel.Username, new { @class = "form-control", placeholder = "Username" })
+                            @Html.ValidationMessageFor(m => loginModel.Username)
+                        </div>
+                        <div class="form-label-group">
+                            @*@Html.LabelFor(m => loginModel.Password)*@
+                            @Html.PasswordFor(m => loginModel.Password, new { @class = "form-control", placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => loginModel.Password)
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase">Login</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div><p>User: kieron122@@gmail.com</p><p>Pass: *jxHeAe$%K</p></div>
+
+    @section Scripts {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    }

@@ -1,0 +1,32 @@
+[
+  {
+    "outputFileName": "assets/js/bs.native.min.js",
+    "inputFiles": [
+      "assets/js/bs.native.js"
+    ]
+  },
+  {
+    "outputFileName": "assets/css/bs.min.css",
+    "inputFiles": [
+      "assets/css/bs.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/css/tailwind.min.css",
+    "inputFiles": [
+      "assets/css/tailwind.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/css/bulma.min.css",
+    "inputFiles": [
+      "assets/css/bulma.css"
+    ]
+  },
+  {
+    "outputFileName": "assets/css/custom.min.css",
+    "inputFiles": [
+      "assets/css/custom.css"
+    ]
+  }
+]
