@@ -1,10 +1,11 @@
 ﻿using System.Web.Mvc;
+using Umbraco.Web.Mvc;
 
 namespace hiredlincs.core
 {
-    class RegisterHiredLincsController
+    class RegisterHLController : SurfaceController
     {
-        public ActionResult Register(RegisterHiredLincsModel model)
+        public ActionResult RegisterHL(RegisterHLModel model)
         {
             if (!ModelState.IsValid)
                 return CurrentUmbracoPage();
@@ -18,9 +19,14 @@ namespace hiredlincs.core
             }
 
             var member = memberService.CreateMember(model.Email, model.Email, model.Name, "registeredMember");
+
+            member.SetValue("userProfileBio", model.Biography);
+
             memberService.SavePassword(member, model.Password);
             Members.Login(model.Email, model.Password);
+
             memberService.Save(member);
+
             return Redirect("/");
         }
     }

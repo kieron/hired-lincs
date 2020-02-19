@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.SubmitJob>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    Layout = "master.cshtml";
+    var loginStatusModel = Members.GetCurrentLoginStatus();
+}
+
+@if (loginStatusModel.IsLoggedIn)
+{
+    <h1>Your logged in</h1>
+}
+else
+{
+    <h1>Your not logged in</h1>
+    <a href="/login">Login</a>
+}

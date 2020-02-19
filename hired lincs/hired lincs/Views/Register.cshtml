@@ -1,10 +1,7 @@
-﻿@using System.Web.Mvc.Html
-@using Umbraco.Web
-@using hiredlincs.core
-@model hiredlincs.core.RegisterHiredLincsModel;
+﻿@using hiredlincs.core;
+@model hiredlincs.core.RegisterHLModel
 @{
     Layout = "master.cshtml";
-    //var registerModel = Members.CreateRegistrationModel();
     Html.EnableClientValidation();
     Html.EnableUnobtrusiveJavaScript();
     var success = TempData["FormSuccess"] != null;
@@ -25,9 +22,24 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Register</h5>
-                        @using (Html.BeginUmbracoForm<RegisterHiredLincsController>("Register", null, new { @class = "form-signin" }))
+                        @using (Ajax.BeginForm("RegisterHL", "RegisterHL", null, new AjaxOptions
+                        {
+                            HttpMethod = "POST",
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "formOuter"
+                        }, new { @class = "form-signin"}))
                         {
                             @Html.ValidationSummary("registerModel", true)
+                            <div class="form-label-group">
+                                <div class="row">
+                                    <div class="col pr-1">
+                                        <a href="#" class="py-5 w-100 btn btn-info text-light">Post Jobs</a>
+                                    </div>
+                                    <div class="col pl-1">
+                                        <a href="#" class="py-5 w-100 btn btn-info text-light visually-disabled" data-toggle="tooltip" data-placement="top" data-original-title="Coming Soon">Find Jobs</a>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="form-label-group">
                                 @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Your Name" })
                                 @Html.ValidationMessageFor(m => m.Name)
@@ -41,7 +53,9 @@
                                 @Html.ValidationMessageFor(m => m.Password)
                             </div>
 
-
+                            @*@Html.HiddenFor(m => m.MemberTypeAlias)
+                            @Html.HiddenFor(m => m.RedirectUrl)
+                            @Html.HiddenFor(m => m.UsernameIsEmail)*@
                             <button class="btn btn-lg btn-primary btn-block text-uppercase">Register</button>
                         }
 

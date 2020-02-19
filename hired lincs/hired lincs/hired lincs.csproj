@@ -1,5 +1,6 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\UmbracoCms.8.1.5\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.8.1.5\build\UmbracoCms.props')" />
+  <Import Project="..\packages\uSync.8.5.0\build\uSync.props" Condition="Exists('..\packages\uSync.8.5.0\build\uSync.props')" />
+  <Import Project="..\packages\UmbracoCms.8.5.3\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.8.5.3\build\UmbracoCms.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -45,17 +46,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClientDependency.Core, Version=1.9.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClientDependency.1.9.7\lib\net45\ClientDependency.Core.dll</HintPath>
+    <Reference Include="ClientDependency.Core, Version=1.9.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency.1.9.8\lib\net45\ClientDependency.Core.dll</HintPath>
     </Reference>
-    <Reference Include="ClientDependency.Core.Mvc, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClientDependency-Mvc5.1.8.0.0\lib\net45\ClientDependency.Core.Mvc.dll</HintPath>
+    <Reference Include="ClientDependency.Core.Mvc, Version=1.9.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency-Mvc5.1.9.3\lib\net45\ClientDependency.Core.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="CSharpTest.Net.Collections, Version=14.906.1403.1082, Culture=neutral, PublicKeyToken=06aee00cce822474, processorArchitecture=MSIL">
       <HintPath>..\packages\CSharpTest.Net.Collections.14.906.1403.1082\lib\net40\CSharpTest.Net.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="Examine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Examine.1.0.0\lib\net452\Examine.dll</HintPath>
+    <Reference Include="Examine, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Examine.1.0.1\lib\net452\Examine.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.8.14.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.8.14\lib\Net45\HtmlAgilityPack.dll</HintPath>
@@ -379,25 +380,52 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Umbraco.Core, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.8.1.5\lib\net472\Umbraco.Core.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.8.5.3\lib\net472\Umbraco.Core.dll</HintPath>
     </Reference>
     <Reference Include="Umbraco.Examine, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Web.8.1.5\lib\net472\Umbraco.Examine.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Web.8.5.3\lib\net472\Umbraco.Examine.dll</HintPath>
     </Reference>
     <Reference Include="Umbraco.ModelsBuilder, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Umbraco.ModelsBuilder.8.1.0\lib\net472\Umbraco.ModelsBuilder.dll</HintPath>
     </Reference>
+    <Reference Include="Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Web.8.5.3\lib\net472\Umbraco.ModelsBuilder.Embedded.dll</HintPath>
+    </Reference>
     <Reference Include="Umbraco.Web, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Web.8.1.5\lib\net472\Umbraco.Web.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Web.8.5.3\lib\net472\Umbraco.Web.dll</HintPath>
     </Reference>
     <Reference Include="Umbraco.Web.UI, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Web.8.1.5\lib\net472\Umbraco.Web.UI.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Web.8.5.3\lib\net472\Umbraco.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="uSync8.BackOffice, Version=8.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uSync.8.5.0\lib\net472\uSync8.BackOffice.dll</HintPath>
+    </Reference>
+    <Reference Include="uSync8.Core, Version=8.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\uSync.Core.8.5.0\lib\net472\uSync8.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.html" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="App_Plugins\uSync8\backoffice\uSync8\dashboard.html" />
+    <Content Include="App_Plugins\uSync8\backoffice\uSync8\uSyncDashboardController.js" />
+    <Content Include="App_Plugins\uSync8\changeDialog.html" />
+    <Content Include="App_Plugins\uSync8\changeDialogController.js" />
+    <Content Include="App_Plugins\uSync8\components\uSyncProgressView.html" />
+    <Content Include="App_Plugins\uSync8\components\usyncProgressViewComponent.js" />
+    <Content Include="App_Plugins\uSync8\components\uSyncReportView.html" />
+    <Content Include="App_Plugins\uSync8\components\uSyncReportViewComponent.js" />
+    <Content Include="App_Plugins\uSync8\lang\en-US.xml" />
+    <Content Include="App_Plugins\uSync8\settings\default.html" />
+    <Content Include="App_Plugins\uSync8\settings\expansion.html" />
+    <Content Include="App_Plugins\uSync8\settings\expansionController.js" />
+    <Content Include="App_Plugins\uSync8\settings\settings.html" />
+    <Content Include="App_Plugins\uSync8\settings\settingsController.js" />
+    <Content Include="App_Plugins\uSync8\settings\uSyncController.js" />
+    <Content Include="App_Plugins\uSync8\usync.css" />
+    <Content Include="App_Plugins\uSync8\uSyncHub.js" />
+    <Content Include="App_Plugins\uSync8\uSyncService.js" />
     <Content Include="assets\css\bs.css" />
     <Content Include="assets\css\bs.min.css">
       <DependentUpon>bs.css</DependentUpon>
@@ -449,17 +477,28 @@
     <Content Include="config\imageprocessor\processing.config" />
     <Content Include="config\imageprocessor\cache.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="App_Plugins\uSync8\package.manifest" />
+    <Content Include="App_Plugins\uSync8\addons.json" />
     <None Include="bundleconfig.json" />
-    <Content Include="Media\Web.config" />
     <Content Include="config\umbracoSettings.config" />
+    <Content Include="config\ClientDependency.config" />
+    <Content Include="Media\Web.config" />
     <Content Include="config\tinyMceConfig.config" />
     <Content Include="config\serilog.user.config" />
     <Content Include="config\serilog.config" />
     <Content Include="config\HealthChecks.config" />
-    <Content Include="config\ClientDependency.config" />
     <Content Include="config\BackOfficeTours\getting-started.json" />
+    <Content Include="config\uSync8.config" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Job.cshtml" />
+    <Content Include="Views\Login.cshtml" />
+    <Content Include="Views\master.cshtml" />
+    <Content Include="Views\Register.cshtml" />
+    <Content Include="Views\root.cshtml" />
+    <Content Include="Views\jobs.cshtml" />
+    <Content Include="Views\SubmitJob.cshtml" />
+    <None Include="Properties\PublishProfiles\HiredLincs web deploy.pubxml" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
@@ -468,12 +507,53 @@
     <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
-    <Content Include="Views\Job.cshtml" />
-    <Content Include="Views\Login.cshtml" />
-    <Content Include="Views\master.cshtml" />
-    <Content Include="Views\Register.cshtml" />
-    <Content Include="Views\root.cshtml" />
-    <Content Include="Views\jobs.cshtml" />
+    <Content Include="uSync\v8\ContentTypes\job.config" />
+    <Content Include="uSync\v8\ContentTypes\jobs.config" />
+    <Content Include="uSync\v8\ContentTypes\login.config" />
+    <Content Include="uSync\v8\ContentTypes\register.config" />
+    <Content Include="uSync\v8\ContentTypes\root.config" />
+    <Content Include="uSync\v8\ContentTypes\submitjob.config" />
+    <Content Include="uSync\v8\DataTypes\ApprovedColor.config" />
+    <Content Include="uSync\v8\DataTypes\CheckboxList.config" />
+    <Content Include="uSync\v8\DataTypes\ContentPicker.config" />
+    <Content Include="uSync\v8\DataTypes\DatePicker.config" />
+    <Content Include="uSync\v8\DataTypes\DatePickerWithTime.config" />
+    <Content Include="uSync\v8\DataTypes\Dropdown.config" />
+    <Content Include="uSync\v8\DataTypes\DropdownMultiple.config" />
+    <Content Include="uSync\v8\DataTypes\ImageCropper.config" />
+    <Content Include="uSync\v8\DataTypes\LabelBigint.config" />
+    <Content Include="uSync\v8\DataTypes\LabelDatetime.config" />
+    <Content Include="uSync\v8\DataTypes\LabelDecimal.config" />
+    <Content Include="uSync\v8\DataTypes\LabelInteger.config" />
+    <Content Include="uSync\v8\DataTypes\LabelString.config" />
+    <Content Include="uSync\v8\DataTypes\LabelTime.config" />
+    <Content Include="uSync\v8\DataTypes\ListViewContent.config" />
+    <Content Include="uSync\v8\DataTypes\ListViewMedia.config" />
+    <Content Include="uSync\v8\DataTypes\ListViewMembers.config" />
+    <Content Include="uSync\v8\DataTypes\MediaPicker.config" />
+    <Content Include="uSync\v8\DataTypes\MemberPicker.config" />
+    <Content Include="uSync\v8\DataTypes\MultipleMediaPicker.config" />
+    <Content Include="uSync\v8\DataTypes\MultiURLPicker.config" />
+    <Content Include="uSync\v8\DataTypes\Numeric.config" />
+    <Content Include="uSync\v8\DataTypes\Radiobox.config" />
+    <Content Include="uSync\v8\DataTypes\RichtextEditor.config" />
+    <Content Include="uSync\v8\DataTypes\Tags.config" />
+    <Content Include="uSync\v8\DataTypes\Textarea.config" />
+    <Content Include="uSync\v8\DataTypes\Textstring.config" />
+    <Content Include="uSync\v8\DataTypes\TrueFalse.config" />
+    <Content Include="uSync\v8\DataTypes\Upload.config" />
+    <Content Include="uSync\v8\Languages\en-us.config" />
+    <Content Include="uSync\v8\MediaTypes\file.config" />
+    <Content Include="uSync\v8\MediaTypes\folder.config" />
+    <Content Include="uSync\v8\MediaTypes\image.config" />
+    <Content Include="uSync\v8\MemberTypes\member.config" />
+    <Content Include="uSync\v8\Templates\job.config" />
+    <Content Include="uSync\v8\Templates\jobs.config" />
+    <Content Include="uSync\v8\Templates\login.config" />
+    <Content Include="uSync\v8\Templates\master.config" />
+    <Content Include="uSync\v8\Templates\register.config" />
+    <Content Include="uSync\v8\Templates\root.config" />
+    <Content Include="uSync\v8\Templates\submitjob.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -491,6 +571,7 @@
       <Name>hiredlincs.core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -523,11 +604,14 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets'))" />
-    <Error Condition="!Exists('..\packages\UmbracoCms.8.1.5\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.1.5\build\UmbracoCms.props'))" />
-    <Error Condition="!Exists('..\packages\UmbracoCms.8.1.5\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.1.5\build\UmbracoCms.targets'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.8.5.3\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.5.3\build\UmbracoCms.props'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.8.5.3\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.5.3\build\UmbracoCms.targets'))" />
+    <Error Condition="!Exists('..\packages\uSync.8.5.0\build\uSync.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\uSync.8.5.0\build\uSync.props'))" />
+    <Error Condition="!Exists('..\packages\uSync.8.5.0\build\uSync.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\uSync.8.5.0\build\uSync.targets'))" />
   </Target>
   <Import Project="..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets" Condition="Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" />
-  <Import Project="..\packages\UmbracoCms.8.1.5\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.8.1.5\build\UmbracoCms.targets')" />
+  <Import Project="..\packages\UmbracoCms.8.5.3\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.8.5.3\build\UmbracoCms.targets')" />
+  <Import Project="..\packages\uSync.8.5.0\build\uSync.targets" Condition="Exists('..\packages\uSync.8.5.0\build\uSync.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

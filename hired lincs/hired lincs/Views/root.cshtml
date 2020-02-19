@@ -1,74 +1,48 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{
 	Layout = "master.cshtml";
+    var settings = Model.AncestorOrSelf<Root>(1);
+    var jobNode = settings.JobsNode;
+    var jobs = jobNode.ChildrenOfType("job").Where(x => x.IsVisible());
 }
-
-    <div class="jumbotron mt-sm-4">
-        <h1 class="display-4">Get Hired.</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <div class="alert alert-primary alert-dismissible fade show mt-sm-4" role="alert">
+        <strong>Holy guacamole!</strong> Thanks for visiting Hired Lincs, if your looking for a job, you wont need an account! Just search above. ^
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-
-    <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <div class="p-3 bg-white rounded shadow">
         <h6 class="border-bottom border-gray pb-2 mb-0">Recently added jobs.</h6>
-        
-@{
-	var selection = Umbraco.Content(Guid.Parse("4fabe90a-8093-47b9-afb3-c1005fd44e13"))
-    .ChildrenOfType("job")
-    .Where(x => x.IsVisible());
-}
 
-	@foreach (var item in selection)
+
+	@foreach (Job job in jobs)
 	{
-		<a href="@item.Url" class="media text-muted pt-3">
+		<a href="@job.Url" class="media text-muted pt-3">
             <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
             <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                <strong class="d-block text-gray-dark">@item.Name</strong>
+                <strong class="d-block text-gray-dark">@job.Name</strong>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
             </p>
         </a>
 	}
 
-
-
-        
         <small class="d-block text-right mt-3">
             <a href="#">All updates</a>
         </small>
     </div>
 
-    @*<div class="my-3 p-3 bg-white rounded shadow-sm">
-        <h6 class="border-bottom border-gray pb-2 mb-0">Featured Jobs.</h6>
-        <div class="media text-muted pt-3">
-            <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                <div class="d-flex justify-content-between align-items-center w-100">
-                    <strong class="text-gray-dark">Full Name</strong>
-                    <a href="#">Follow</a>
+    <div class="my-5">
+        <h1 class="text-center">Dev Shortcuts</h1>
+        <div class="card-deck my-4">
+            <div class="card">
+                <div class="card-body">
+                    <a href="/submit-job" class="w-100 btn btn-primary">Go To Submit Job</a>
                 </div>
-                <span class="d-block">username</span>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <a href="/login" class="w-100 btn btn-primary">Go To Login</a>
+                </div>
             </div>
         </div>
-        <div class="media text-muted pt-3">
-            <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                <div class="d-flex justify-content-between align-items-center w-100">
-                    <strong class="text-gray-dark">Full Name</strong>
-                    <a href="#">Follow</a>
-                </div>
-                <span class="d-block">username</span>
-            </div>
-        </div>
-        <div class="media text-muted pt-3">
-            <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                <div class="d-flex justify-content-between align-items-center w-100">
-                    <strong class="text-gray-dark">Full Name</strong>
-                    <a href="#">Follow</a>
-                </div>
-                <span class="d-block">username</span>
-            </div>
-        </div>
-        <small class="d-block text-right mt-3">
-            <a href="#">All suggestions</a>
-        </small>
-    </div>*@
+    </div>

@@ -2,8 +2,9 @@
 
 namespace hiredlincs.core
 {
-    class RegisterHiredLincsModel
+    public class RegisterHLModel
     {
+
         [Required]
         public string Name { get; set; }
 
@@ -13,6 +14,8 @@ namespace hiredlincs.core
 
         [Required]
         public string Password { get; set; }
+
+        public string Biography { get; set; }
 
     }
 }

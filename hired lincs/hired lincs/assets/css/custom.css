@@ -135,4 +135,34 @@
 
 .navSearch::-ms-input-placeholder:active { /* Microsoft Edge */
     color: #262626;
-} 
+}
+
+.bg-hiredlincs {
+    background-color: #086cc4 !important;
+}
+
+.collapse .show {
+    margin-right: .5rem !important;
+}
+
+.remove-button-style {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #fafafa;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.visually-disabled {
+    opacity: .65;
+    cursor: default
+}
+
+.register-button {
+    height: 100px;
+    line-height: 65px;
+}
